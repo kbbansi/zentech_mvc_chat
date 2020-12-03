@@ -1,16 +1,17 @@
 <?php
 class Db {
     private static $db;
-    public $dbHost = 'localhost';
-    public $dbName = 'zentech_chat';
-    public $dbPassword = 'kb2020#KB';
-    public $dbUser = 'root';
+   // $dbHost = 'localhost';
+   // $dbName = 'zentech_chat';
 
     public static function init() {
         if (!self::$db) {
             try {
                 //code...
-                $domainNameServer = 'mysql:host='.$dbHost.';dbname='.$dbName.';charset=UTF-8';
+                $dbPassword = 'kb2020#KB';
+                $dbUser = 'root';
+                $domainNameServer = 'mysql:host=localhost;dbname=zentech_chat;';
+
                 self::$db = new PDO($domainNameServer, $dbUser, $dbPassword);
                 self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 self::$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);

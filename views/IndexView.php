@@ -16,4 +16,8 @@ class IndexView {
     public function action() {
         return $this->controller->takeAction();
     }
+
+    public function save() {
+        return $this->controller->save();
+    }
 }

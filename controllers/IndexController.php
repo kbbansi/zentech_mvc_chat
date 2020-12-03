@@ -23,4 +23,33 @@ class IndexController {
 
         return $this->view->output();
     }
+
+    public function save() {
+        // if (!isset($_POST['submit'])) {
+        //     # code...
+        //     echo '<script>alert("Opps an Error");</script>';
+        //     //header('Location:/');
+        // }
+
+        $userName = isset($_POST['userName']);
+        $chatMessage = isset($_POST['message']);
+
+        try {
+            //code...
+            $chat = new IndexModel();
+            $chat->setuserName($userName);
+            $chat->setMessage($chatMessage);
+
+            $chat->sendMessage();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
 }
+
+/*
+$indexModel = New IndexModel();
+            $indexController = New IndexController($indexModel);
+            $indexView = New IndexView($indexController, $indexModel);
+            print $indexView->action();
+            */
